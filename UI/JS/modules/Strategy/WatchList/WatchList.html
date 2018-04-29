@@ -1,0 +1,39 @@
+<div class="pgleftpanel" ng-class="{pgleftpanelextend : !menuViewStatus }">
+	<div class="outerborder">
+		<ul class="nav nav-tabs cisco-ui-tab" ng-init="activeView='WL'">
+		    <li ng-class="activeView=='WL'?'active':''" ui-sref="BufferStrategy.watchlist" ng-click="activeView='WL'"><a>Watch List</a></li>
+		    <li ng-class="activeView=='Dtl'?'active':''" ui-sref="BufferStrategy.details"><a ng-click="activeView='Dtl'">Details</a></li>
+		</ul>
+	
+		<div class="bufferStrategyView" style="width:31%;" ng-style="expandTBSStyle">
+			<div class="panelhead1">To Be - Shortage
+				<div class="pull-right">
+					<div class="pull-right" ng-click="toggleGridFullPage('expandTBS')" style="color:#bbb; cursor:pointer;">[{{expandTBS?"+":"-"}}]</div> 
+				</div>
+			</div>
+			<div class="bsvBody" ng-init="expandTBS=true">
+	           	<div id="grid1" ui-grid="gridOptions1.table"  ui-grid-auto-resize class="grid"></div>
+			</div>
+	   	</div>
+	   	<div class="bufferStrategyView" style="width:31%;" ng-style="expandTBEStyle">
+			<div class="panelhead1">To Be - E&O
+				<div class="pull-right">
+					<div class="pull-right" ng-click="toggleGridFullPage('expandTBE')" style="color:#bbb; cursor:pointer;">[{{expandTBE?"+":"-"}}]</div> 
+					</div>
+			</div>
+			<div class="bsvBody" ng-init="expandTBE=true">
+	           	<div id="grid1" ui-grid="gridOptions2.table" ui-grid-auto-resize class="grid"></div>
+			</div>
+	   	</div>
+	   	<div class="bufferStrategyView" style="width:31%;" ng-style="expandMASStyle">
+			<div class="panelhead1">MoM - Avg. SS
+				<div class="pull-right">
+					<div class="pull-right" ng-click="toggleGridFullPage('expandMAS')" style="color:#bbb; cursor:pointer;">[{{expandMAS?"+":"-"}}]</div> 
+					</div>
+			</div>
+			<div class="bsvBody" ng-init="expandMAS=true">
+	           	<div id="grid1" ui-grid="gridOptions3.table" ui-grid-auto-resize class="grid"></div>
+			</div>
+	   	</div>
+	</div>
+</div>
