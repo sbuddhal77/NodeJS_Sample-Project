@@ -1,0 +1,19 @@
+{
+  "name": "integrated-planning-workbench",
+  "main": "server.js",
+  "version": "0.0.0",
+  "contributors": [
+    {
+      "name": "Sreenivasulu Buddhala",
+      "email": "sbuddhal@cisco.com"
+    }
+  ],
+  "scripts": {
+    "start": "bower install && npm install && node server.js"
+  },
+  "dependencies": {
+    "express": "~4.14.0"	
+  },
+  "devDependencies": {
+  }
+}
