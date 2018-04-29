@@ -1,0 +1,51 @@
+<div class="pgleftpanel" ng-class="{pgleftpanelextend : !menuViewStatus }">
+	<div class="outerborder">
+		
+		<div style="float:right;border:1px solid black;background:#f0f0f0;padding:5px 25px;">
+			<div>
+				<span class="glyphicon glyphicon-filter"></span> FILTER
+			</div>
+		</div>
+		
+		<ul class="nav nav-tabs cisco-ui-tab" ng-init="activeView='Dtl'">
+		    <li ng-class="activeView=='WL'?'active':''" ui-sref="BufferStrategy.watchlist"><a>Watch List</a></li>
+		    <li ng-class="activeView=='Dtl'?'active':''" ui-sref="BufferStrategy.details"><a>Details</a></li>
+		</ul>
+		<div class="bufferStrategyView" style="width:96%;">
+			<div class="panelhead1">Details
+				<div class="pull-right">
+						<span class="glyphicon glyphicon-equalizer" data-toggle="modal" data-target="#myModal"></span>
+						<span class="glyphicon glyphicon-{{showTBS?'resize-small':'fullscreen'}}" ng-click="showTBS=!showTBS"></span>
+				</div>
+			</div>
+			<div ng-show="showTBS" class="bsvBody" ng-init="showTBS=true">
+				<div class="loading" ng-show="showTBSLoading"><img src="../images/ajax-loader.gif" height="25" width="25"/>Loading...</div>
+	           	<div id="grid1" ui-grid="detailsGridOption"  ui-grid-auto-resize class="grid"></div>
+			</div>
+	   		<!-- Modal -->
+			  <div class="modal fade" id="myModal" role="dialog">
+			    <div class="modal-dialog">
+			    
+			      <!-- Modal content-->
+			      <div class="modal-content">
+			        <div class="modal-header">
+			          <button type="button" class="close" data-dismiss="modal">&times;</button>
+			          <h4 class="modal-title">Add/Remove Columns</h4>
+			        </div>
+			        <div class="modal-body">
+							<div ng-repeat="items in columnDefination track by $index"  ng-class="{'highlightdiv':columnDefination[$index].visible}" class="gridColumnSelection" ng-click="toggleGridSelection($index)">
+								<label >{{items.displayName}}</label>
+							</div>
+			        </div>
+			        <div class="modal-footer">
+			          <button type="button" class="btn btn-default btn-prefered" data-dismiss="modal" >SAVE</button>
+			          <button type="button" class="btn btn-default" data-dismiss="modal" >CLOSE</button>
+			        </div>
+			      </div>
+			      
+			    </div>
+			  </div>
+		  </div>
+	   	
+	</div>
+</div>
